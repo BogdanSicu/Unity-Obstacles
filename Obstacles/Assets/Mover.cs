@@ -13,10 +13,23 @@ public class Mover : MonoBehaviour
     {
         // X,Y,Z -> add 1 to X, 0 to Y and 0 to Z axes
         // transform.Translate(1,0,0);
+        PrintInstructions();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        Movement();
+    }
+
+    void PrintInstructions() 
+    {
+        Debug.Log("Welcome to the game");
+        Debug.Log("Move your player with WASD or arrow keys");
+        Debug.Log("Don't hit the walls!");
+    }
+
+    void Movement() 
     {
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
