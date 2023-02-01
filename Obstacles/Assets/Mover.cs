@@ -6,6 +6,7 @@ public class Mover : MonoBehaviour
 {
     // [SerializeField] face ca variabila sa poata fi vizibila in Unity
     // [SerializeField] private float yValue = 0.02f;
+    [SerializeField] private float movementSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +18,8 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xValue = Input.GetAxis("Horizontal");
-        float zValue = Input.GetAxis("Vertical");
+        float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
+        float zValue = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
 
         transform.Translate(xValue,0,zValue);
     }
